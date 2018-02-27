@@ -1,0 +1,373 @@
+
+/*#####################Style CSS - Anna-Maria Cavallaro March 2018 - Style properties for the weather forecast######################*/
+
+body {
+	background-repeat: no-repeat;
+	font-family: Arial;
+}
+
+input[type=text] {
+    border: 1px #999;
+    border-radius: 0;
+	font-size:14px;
+	padding:3px 10px;
+    
+    -webkit-appearance: none;
+}
+
+input[type=submit] {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+	background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:13px;
+	-webkit-border-radius:13px;
+	border-radius:10px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:3px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+
+input[type=submit]:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+	background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+	background-color:#dfdfdf;
+}
+input[type=submit]:active {
+	position:relative;
+	top:1px;
+}
+
+#geoloc {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+	background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:13px;
+	-webkit-border-radius:13px;
+	border-radius:10px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	padding:3px 3px;
+	position: absolute;
+    top: 0px;
+    left: 280px;
+	height: 25px;
+	margin: 5px;	
+}
+
+#geoloc:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+	background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+	background-color:#dfdfdf;
+}
+
+#geoloc:active {
+	position:relative;
+	top:1px;
+}
+
+#marker {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+	background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:13px;
+	-webkit-border-radius:13px;
+	border-radius:10px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	position: absolute;
+    top: 0;
+    left: 310px;
+	height: 25px;
+	margin: 5px;	
+	color:#777777;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:3px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+
+#marker:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+	background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+	background-color:#dfdfdf;
+}
+
+#marker:active {
+	position:relative;
+	top:1px;
+}
+
+#myForm {
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 50px;
+    margin: 5px;
+}
+
+#Place {
+	position: absolute;
+    top: 25px;
+    left: 0px;
+    width: 300px;
+    height: 150px;
+    margin: 5px;
+}
+
+#Temperature{
+	position: absolute;
+    top: 200px;
+    left: 0px;
+    width: 300px;
+    height: 150px;
+    margin: 5px;
+}
+
+#Unit{
+	position: absolute;
+    top: 248px;
+    left: 150px;
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+}
+
+#minmax{
+	position: absolute;
+    top: 200px;
+    left: 190px;
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+}
+
+#Description{
+	position: absolute;
+    top: 300px;
+    left: 50px;
+    width: 300px;
+    height: 50px;
+    margin: 5px;
+}
+
+#icon0{
+	position: absolute;
+    top: 305px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+
+#container2{
+	position: absolute;
+    top: 350px;
+    left: 0px;
+    width: 500px;
+    height: 150px;
+    margin: 5px;
+	background-color: #1b2330;
+	opacity: 0.5;
+}
+
+#raincloud{
+	position: absolute;
+    top: 400px;
+    left: 5px;
+    margin: 5px;
+}
+
+#GeneralDescription{
+	position: absolute;
+    top: 350px;
+    left: 0px;
+    width: 480px;
+    height: 40px;
+    margin-left: 10px;
+	margin-top: 0px;
+	border-bottom-color: white;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+#DailyWeather{
+	position: absolute;
+    top: 380px;
+    left: 300px;
+    width: 200px;
+    height: 120px;
+    margin: 5px;
+}
+
+#DailyWeatherIcon{
+	position: absolute;
+    top: 390px;
+    left: 250px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+#Humidity{
+	position: absolute;
+    top: 374px;
+    right: 13px;
+    height: 120px;
+    margin: 5px;
+}
+
+#cloudcover{
+	border-collapse: collapse;
+}
+
+
+th,td{
+	text-align:center;
+	padding-left:2px;
+	padding-right:2px;
+}
+
+#container3{
+	position: absolute;
+    top: 510px;
+    left: 0px;
+    width: 500px;
+    height: 150px;
+    margin: 5px;
+	background-color: #1b2330;
+	opacity: 0.5;
+}
+
+#Sunpic{
+	position: absolute;
+    top: 570px;
+    left: 5px;
+    width: 100px;
+    height: 120px;
+    margin: 5px;
+}
+
+#SunDescription{
+	position: absolute;
+    top: 510px;
+    left: 0px;
+    width: 480px;
+    height: 40px;
+    margin-left: 10px;
+	margin-top: 0px;
+	border-bottom-color: white;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+#Sun{
+	position: absolute;
+    top: 540px;
+    left: 100px;
+    width: 400px;
+    height: 120px;
+    margin: 5px;
+}
+
+#Sunshine{
+	position: absolute;
+    top: 600px;
+    left: 370px;
+    width: 120px;
+    height: 50px;
+    margin: 5px;
+}
+
+#angle{
+	position: absolute;
+    top: 550px;
+    left: 250px;
+    width: 150px;
+    height: 120px;
+    margin: 5px;
+}	
+
+#container4{
+	position: absolute;
+    top: 670px;
+    left: 0px;
+    width: 500px;
+    height: 280px;
+    margin: 5px;
+	background-color: #1b2330;
+	opacity: 0.5;
+}
+
+#ForecastDescription{
+	position: absolute;
+    top: 670px;
+    left: 0px;
+    width: 480px;
+    height: 40px;
+    margin-left: 10px;
+	margin-top: 0px;
+	border-bottom-color: white;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+#Forecasts{
+	position: absolute;
+    top: 710px;
+    left: 0px;
+    width: 500px;
+    height: 250px;
+    margin: 5px;
+}

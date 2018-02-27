@@ -1,0 +1,106 @@
+
+<!--#####################MAIN PAGE - Anna-Maria Cavallaro March 2018 - Sentinel Dashboard with visible flight acquisition######################-->
+
+<!DOCTYPE html>
+<html>
+<title>Sentinel-2 Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<!-- Fontawesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+<!-- W3 CSS Framework -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+<!-- style properties for the main HTML page -->
+<link rel="stylesheet" type="text/css" href= "styles/MainHtml.css">
+
+<!-- Predictlib for predicting the satellite orbits, based on TLE data -->
+<script type="text/javascript" src="libs/predictlib.js"></script>
+
+<!-- Two-Line-Elements as Javascript object -->
+<script type="text/javascript" src="libs/tle.js"></script>
+
+<!-- Day-Night Overlay -->
+<script type="text/javascript" src="libs/terminator.js"></script>
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+<!-- open and close weather forecast -->
+<script type="text/javascript" src="scripts/OpenCloseSidebar.js"></script>
+
+<!-- creates popup-->
+<script type="text/javascript" src="scripts/PopupContent.js"></script>
+
+<!--################################################################-->
+
+<!-- body of the HTML -->
+
+<body class="w3-light-grey">
+
+<!-- top container -->
+
+<div id="menu-top" class="w3-bar w3-top w3-dark-grey w3-large">
+  <button class="menu-top-menu w3-bar-item w3-button w3-hover-none w3-hover-text-light-grey" data-ember-action="" data-ember-action-446="446"><i aria-hidden="true" class="fa fa-bars"></i> &nbsp;Menu</button>
+  <span id="w3-titlebar" class="w3-bar-item"><i aria-hidden="true" class="fa fa-map"></i> Granule Maps</span>
+  <span class="menu-top-help-button w3-bar-item w3-right"><i aria-hidden="true" class="fa w3-hover-text-light-grey fa-question-circle"></i></span>
+  <span class="w3-bar-item w3-right">Sentinel-2 Dashboard</span>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-top:43px;">
+
+  <!-- header -->
+  <header id="header" class="w3-container">
+    <h5><b><i class="fa fa-globe"></i> Sentinel-2 A and Sentinel-2 B</b></h5>
+  </header>
+
+    <!-- main map -->
+    <div id="main-map-view"></div>
+		
+	<!-- button for weather forecast -->
+	<span id="sunbutton" onclick="openNav()" title="Get weather forecast"><img id="sunimg" src="Icons/32.png" alt="Weather"></span>
+	
+	<!-- weather forecast -->
+	<div id="mySidenav" class="sidenav">
+    <object type="text/html" data="DefaultSbg.html"
+            style="min-width:510px; height:1100px;">
+    </object>
+	
+	<!-- button for closing the weather forecast -->
+	<button onclick="closeNav()" id="closebtn" title="Close">&times;</button>
+	</div>
+
+  <!-- footer -->
+  <footer id= "footer" class="w3-bar w3-down w3-dark-grey w3-large">
+    <p style="margin:3px;">Developed by Martin Sudmanns and Anna-Maria Cavallaro | Department of Geoinformatics - Z_GIS, University of Salzburg | 
+	<a href="https://www.yahoo.com/?ilc=401" target="_blank"> 
+		<img src="https://poweredby.yahoo.com/white.png" width="134" height="29" alt="YAHOO"/>
+	</a> 
+	<a href="https://openweathermap.org/">          
+        <img src="support_logos/logo_OpenWeatherMap_orange.svg" height="20" alt="openweathermap">                
+    </a> 
+	<a href="https://timezonedb.com/">
+		<img src="https://cdn.timezonedb.com/images/logo.png" height="20" alt="TimeZoneDB">
+	</a></p>
+  </footer>
+  
+  <!-- map content -->
+  <script type="text/javascript" charset="UTF-8" src="scripts/MapContent.js"></script>
+
+<!-- end page content -->
+
+</div>
+
+</body>
+</html>
