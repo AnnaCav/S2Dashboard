@@ -8,10 +8,9 @@
 	var strHour = str.substring (17,19);
 	var strMinute = str.substring (20,22);
 	var strDaytime = str.substring (23,25);
-	if (strDaytime == "PM") {strHour = strHour + 12;}
-
+	if (strDaytime == "PM") {strHour = parseInt(strHour) + 12;}
 	/*get date*/
-	var strDate = strMonth + " " + strDay + " " + strYear + " " + strHour + ":" + strMinute;
+	var strDate = strDay + " " + strMonth + " " + strYear + " " + strHour + ":" + strMinute;
 
 	var date = new Date(strDate);
 
@@ -39,6 +38,7 @@
 	if (h < 0) {h = 0;}
 	var num = parseFloat(Math.round(h * 100) / 100).toFixed(2);
 	document.getElementById("sunangle").value = num;
+	/*alert (latsun + " " + str + " -" + strDate + "- " + date + " " + hourangle + " " + dekl + " " + sinh + " " + h);*/
 
 	/*draw angle*/
 	var c = document.getElementById("myCanvas");
