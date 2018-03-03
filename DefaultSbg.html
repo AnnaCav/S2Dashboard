@@ -37,6 +37,16 @@
 
 <!--#######################################-->
 <!-- output in html page from weather data -->
+<div id="overlay">
+<div class="loader"></div>
+</div>
+<script>
+	var overlay = document.getElementById("overlay");
+	
+	window.addEventListener("load", function(){
+		overlay.style.display = "none";
+	})
+</script>
 <div id="Place">
 <h1 style="font-size:36px; color:white; text-shadow:0 0 3px black; margin-bottom:10px">
 	<output id="location" ></output>
@@ -44,8 +54,8 @@
 <p style="font-size:18px; color:white; text-shadow:0 0 3px black;margin-top:0px">
 	<output id="region"></output>, <output id="country"></output>
 </p>
-<p style="font-size:18px; color:white; text-shadow:0 0 3px black;margin-top:0px">
-<output id="date"></output> (last build date)
+<p style="font-size:11px; color:white; text-shadow:0 0 3px black;margin-top:0px">
+<output id="date" style="font-size:18px"></output> <br>(last build date)
 </p>
 </div>
 <br>
