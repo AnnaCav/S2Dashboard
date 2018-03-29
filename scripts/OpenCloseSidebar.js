@@ -1,3 +1,5 @@
+/*################## Open and clos sidebar - Anna-Maria Cavallaro April 2018 #################*/
+
 /*open weather forecast*/
 function openNav() {
     document.getElementById("mySidenav").style.width = "510px";
