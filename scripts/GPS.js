@@ -1,3 +1,5 @@
+/*################## Get current GPS position - Anna-Maria Cavallaro April 2018 #################*/
+
 /* get current GPS location */
 function getLocation() {
     if (navigator.geolocation) {
@@ -7,7 +9,7 @@ function getLocation() {
     }
 }
 
-/* Write current GPS location in the form and submit */
+/* write current GPS location in the form and submit */
 function showPosition(position) {
     var latitude = position.coords.latitude; 
     var longitude  = position.coords.longitude;
