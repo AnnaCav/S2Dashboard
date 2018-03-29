@@ -1,5 +1,8 @@
-/* callback function which extracts data from OpenWeatherMap */
-	var openWeather = function getWeather(data) {
+/*################## Get data from Open Weather Map - Anna-Maria Cavallaro April 2018 #################*/
+
+    /* callback function which extracts data from OpenWeatherMap */
+    /* get cloud cover and precepitation data */
+var openWeather = function getWeather(data) {
 		var now = data.list[0].dt_txt;
 		var nowlast = now.substr(11,5);
 		var nowcloud = data.list[0].clouds.all;
@@ -94,5 +97,5 @@
 		document.getElementById("prec15").value=precnew15;
 		document.getElementById("prec18").value=precnew18;
 		document.getElementById("prec21").value=precnew21;
-
-	};
+		
+};
