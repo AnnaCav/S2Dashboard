@@ -1,4 +1,6 @@
-/* calculation of the sun angle */
+/*################## Calculation of the sun angle - Anna-Maria Cavallaro April 2018 #################*/
+
+  /*calculation of the sun angle*/
 	var phi = latsun;
 	var str = lastBuildDate;
 	var dayofweek = str.substring(0,3);
@@ -8,7 +10,8 @@
 	var strHour = str.substring (17,19);
 	var strMinute = str.substring (20,22);
 	var strDaytime = str.substring (23,25);
-	if (strDaytime == "PM") {strHour = parseInt(strHour) + 12;}
+	if (strDaytime == "PM" && strHour < 12 && strHour > 0) {strHour = parseInt(strHour) + 12;}
+  
 	/*get date*/
 	var strDate = strDay + " " + strMonth + " " + strYear + " " + strHour + ":" + strMinute;
 
@@ -28,17 +31,17 @@
 	var diff = date-start;
 	var oneDay = 1000 * 60 * 60 * 24;
 	var day = Math.floor(diff / oneDay);
-		
+	
+	/*var days = date.getFullYear()*/	
 	var dekl = 23.4*Math.sin(((2*Math.PI)/360)*(360*(284+day)/365));
 
 	/*sun height*/
 	var sinh = Math.cos(((2*Math.PI)/360)*dekl) * Math.cos(((2*Math.PI)/360)*hourangle) * Math.cos(((2*Math.PI)/360)*phi) + Math.sin(((2*Math.PI)/360)*dekl) * Math.sin(((2*Math.PI)/360)*phi);
 	var h =(360 /(2* Math.PI))*Math.asin(sinh);
-
+	alert (strDate);
 	if (h < 0) {h = 0;}
 	var num = parseFloat(Math.round(h * 100) / 100).toFixed(2);
 	document.getElementById("sunangle").value = num;
-	/*alert (latsun + " " + str + " -" + strDate + "- " + date + " " + hourangle + " " + dekl + " " + sinh + " " + h);*/
 
 	/*draw angle*/
 	var c = document.getElementById("myCanvas");
@@ -50,6 +53,7 @@
 	ctx.lineTo(0, 100);
 	if ( h > 0){
 	ctx.lineTo(0 + r * Math.cos(Math.PI * theta / 180.0),100 + r * Math.sin(Math.PI * theta / 180.0));}
+  
 	ctx.stroke();
 	
 	if (h == 0){
