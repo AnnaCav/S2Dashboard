@@ -1,4 +1,7 @@
-	var satMap = L.map('main-map-view').setView([0, 0], 1);
+/*##########################Creation of MapContent and Satellite overflight prediction - Anna-Maria Cavallaro, Martin Sudmanns April 2018 ######################*/	
+  
+  /* set variable for map */
+  var satMap = L.map('main-map-view').setView([0, 0], 1);
 
 	/* set basemap */
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -11,6 +14,7 @@
 	/* set default center of map to the Atlantik*/
 	satMap.setView(new L.LatLng(20.532357, -39.095601), 2);
 	
+  /* set click function*/
 	satMap.on('click', onMapClick);
     
 	/*acquisition Plan*/
@@ -41,6 +45,15 @@
 		    for (var i=0; i<satellites.length; i++){
 			    var satInfo = PLib.QuickFind(PLib.sat[i].name);
 			    satellites[i].setLatLng([satInfo.latitude, satInfo.longitude]);
+				if (PLib.sat[i].name == "AQUA"){
+				satellites[i].bindPopup("Sentinel 2B");}
+				else {satellites[i].bindPopup(PLib.sat[i].name);}
+				satellites[i].on('mouseover', function (e) {
+				this.openPopup();
+				});
+				satellites[i].on('mouseout', function (e) {
+					this.closePopup();
+				});
 		    }
 	    }
     }
@@ -70,8 +83,8 @@
 			    L.polyline(t_ll, {color: colors[s]}).addTo(satMap);
 			    /*Instantiate a new array*/
 			    t_ll = [latlngs[i]]
-		    }else{
-			    
+		    }
+        else{
 			    /*If we can proceed, add coordinates to the temp array*/
 			    t_ll.push(latlngs[i]);
 		    }
