@@ -1,3 +1,5 @@
+/*################## Get data from Yahoo - Anna-Maria Cavallaro April 2018 #################*/
+
 var lastBuildDate;
 var latsun;
 
@@ -122,5 +124,5 @@ var callbackFunction = function getWeather(data) {
 	document.getElementById("description9").value = forecast9.text;
 	document.getElementById("high9").value = forecast9.high;
 	document.getElementById("low9").value = forecast9.low;
-  };
+};
 
