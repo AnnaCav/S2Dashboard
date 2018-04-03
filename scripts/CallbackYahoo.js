@@ -45,21 +45,21 @@ var callbackFunction = function getWeather(data) {
 	
 	/* choose background adapted to the current weather situation */
 	if (icon == 25 || icon == 32 || icon == 34 || icon == 36){
-		document.body.style.backgroundImage = "url('Background/sun.jpg')";}
+		document.body.style.backgroundImage = "url('background/sun.jpg')";}
 	else if (icon == 19 || icon == 20 || icon == 21 || icon == 22){
-		document.body.style.backgroundImage = "url('Background/dust.jpg')";}
+		document.body.style.backgroundImage = "url('background/dust.jpg')";}
 	else if (icon == 5 ||icon == 6 || icon == 8 || icon == 9 || icon == 10 || icon == 11 || icon == 12 || icon == 35 || icon == 40 ){
-		document.body.style.backgroundImage = "url('Background/rain.jpg')";}
+		document.body.style.backgroundImage = "url('background/rain.jpg')";}
 	else if (icon == 7 || icon == 13 || icon == 14 || icon == 15 || icon == 16 || icon == 17 || icon == 18 || icon == 41 || icon == 42 || icon == 43 || icon == 46){
-		document.body.style.backgroundImage = "url('Background/snow.jpg')";}
+		document.body.style.backgroundImage = "url('background/snow.jpg')";}
 	else if (icon == 3 || icon == 4 || icon == 37 || icon == 38 || icon == 39 || icon == 45 || icon == 47){
-		document.body.style.backgroundImage = "url('Background/thunderstorm.jpg')";}
+		document.body.style.backgroundImage = "url('background/thunderstorm.jpg')";}
 	else if (icon == 0 || icon == 1 || icon == 2 || icon == 23 || icon == 24){
-		document.body.style.backgroundImage = "url('Background/wind.jpg')";}
+		document.body.style.backgroundImage = "url('background/wind.jpg')";}
 	else if (icon == 31 || icon == 33){
-		document.body.style.backgroundImage = "url('Background/moon.jpg')";}
+		document.body.style.backgroundImage = "url('background/moon.jpg')";}
 	else {
-		document.body.style.backgroundImage = "url('Background/cloud.jpg')";}
+		document.body.style.backgroundImage = "url('background/cloud.jpg')";}
 	
 	/* write data about the forecast in visible HTML file */
 	document.getElementById("day1").value = forecast1.day

@@ -57,4 +57,4 @@
 	ctx.stroke();
 	
 	if (h == 0){
-	document.body.style.backgroundImage = "url('Background/moon.jpg')";}
+	document.body.style.backgroundImage = "url('background/moon.jpg')";}
