@@ -18,7 +18,7 @@
 	satMap.on('click', onMapClick);
     
 	/*acquisition Plan*/
-    var wmsLayer = L.tileLayer.wms('http://cf000008.geo.sbg.ac.at:8888/geoserver/s2/ows?', {
+    var wmsLayer = L.tileLayer.wms('http://eo-compass.zgis.at/geoserver/s2/ows?', {
 	    layers: 's2:s2_acq_plan',
 	    styles: 'Acq_Plan_Default',
 	    transparent: 'true',

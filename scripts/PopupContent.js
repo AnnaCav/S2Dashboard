@@ -46,7 +46,7 @@
 	satMap.on('click', onMapClick);
 	
 				function loadAcquisition() {
-				var link = 'http://sentinel-dashboard.zgis.at/geoserver/s2/ows?service=WFS&version=2.0.0&request=GetFeature&outputFormat=application/json&srsName=EPSG:4326&typeName=s2:upcoming_s2_acquisitions&CQL_FILTER=CONTAINS(geom,Point('+lat+' '+lon+'))';	
+				var link = 'http://eo-compass.zgis.at/geoserver/s2/ows?service=WFS&version=2.0.0&request=GetFeature&outputFormat=application/json&srsName=EPSG:4326&typeName=s2:upcoming_s2_acquisitions&CQL_FILTER=CONTAINS(geom,Point('+lat+' '+lon+'))';	
 				  var xhttp = new XMLHttpRequest();
 				  xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
@@ -68,7 +68,7 @@
 				
         /*get next overflight date*/	
 				function loadOverflight() {
-				var link = "http://sentinel-dashboard.zgis.at/geoserver/s2/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=s2:upcoming_s2_passes&maxFeatures=50&outputFormat=application/json&viewparams=LAT:"+lat+";LON:"+lon;
+				var link = "http://eo-compass.zgis.at/geoserver/s2/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=s2:upcoming_s2_passes&maxFeatures=50&outputFormat=application/json&viewparams=LAT:"+lat+";LON:"+lon;
 				  var xhttp = new XMLHttpRequest();
 				  xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
@@ -79,8 +79,41 @@
 				  xhttp.send();
 				  }
 				  function ovfFunction(xml){
-				  var satflight = JSON.parse (xml.responseText);
-				  overflight = [satflight.features[0].properties.satellite, satflight.features[0].properties.orbit, satflight.features[0].properties.timestamp_sattime, satflight.features[0].properties.duration_sattime];
+					var current_time = new Date();
+					function convertMillisecondsToHumanReadable(ms) {
+						var d, h, m, s;
+						s = Math.floor(ms / 1000);
+						m = Math.floor(s / 60);
+						s = s % 60;
+						h = Math.floor(m / 60);
+						m = m % 60;
+						d = Math.floor(h / 24);
+						h = h % 24;
+						return d + "/" + h + "/" + m + "/" + s;
+					};
+					function findNextPassIndex(features){
+						var lastTimestamp = null;
+						var index = 0;
+						for (var i=0;i<features.length;i++){
+							if (lastTimestamp == null){
+								lastTimestamp = features[i].properties.timestamp;
+								index = i;
+								continue;
+							}
+							if (features[i].properties.timestamp < lastTimestamp){
+								index = i;
+							}
+						}
+						return index;
+					}
+					var satflight = JSON.parse (xml.responseText);
+					var i = findNextPassIndex(satflight.features);
+				  overflight = [
+							satflight.features[i].properties.satellite,
+							satflight.features[i].properties.orbit,
+							satflight.features[i].properties.timestamp,
+							convertMillisecondsToHumanReadable(Date.parse(satflight.features[i].properties.timestamp) - current_time)
+					];
 				  loadTime();
 					}
 				
